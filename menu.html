@@ -4,35 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu - Pixel Café</title>
+  <meta name="description" content="Il menu del Pixel Café: caffè speciali, snack per sviluppatori e bevande per sostenere ogni sessione di programmazione.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <img src="assets/logo.svg" alt="Logo Pixel Café" class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.svg" alt="Logo Pixel Café" class="logo">
+      <span>Pixel Café</span>
+    </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Menu</a>
+      <a href="index.html#prenota" class="nav-cta">Prenota un tavolo</a>
     </nav>
   </header>
 
   <main>
-    <h1>Menu</h1>
+    <div class="section-header">
+      <span class="badge">Le nostre specialità</span>
+      <h1>Il Nostro Menu</h1>
+      <p>Ogni riga di codice merita una bevanda all'altezza. Ingredienti freschi e tostatura perfetta.</p>
+    </div>
+
     <table class="menu">
       <thead>
-        <tr><th>Prodotto</th><th>Prezzo</th></tr>
+        <tr>
+          <th>Prodotto</th>
+          <th>Prezzo</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Espresso.js</td><td>€ 1,20</td></tr>
-        <tr><td>Cappuccino CSS</td><td>€ 1,60</td></tr>
-        <tr><td>Latte macchiato HTML</td><td>€ 1,80</td></tr>
-        <tr><td>Cornetto al commit</td><td>€ 1,40</td></tr>
-        <tr><td>Toast 404 (non trovato)</td><td>€ 3,50</td></tr>
+        <tr>
+          <td><strong>Espresso.js</strong><br><small style="color:var(--text-muted)">Shot doppio di arabica per partire a razzo</small></td>
+          <td>€ 1,20</td>
+        </tr>
+        <tr>
+          <td><strong>Cappuccino CSS</strong><br><small style="color:var(--text-muted)">Schiuma perfettamente allineata al centro</small></td>
+          <td>€ 1,60</td>
+        </tr>
+        <tr>
+          <td><strong>Latte macchiato HTML</strong><br><small style="color:var(--text-muted)">Struttura semantica a strati visibili</small></td>
+          <td>€ 1,80</td>
+        </tr>
+        <tr>
+          <td><strong>Cornetto al commit</strong><br><small style="color:var(--text-muted)">Ripieno alla crema o cioccolato fondente</small></td>
+          <td>€ 1,40</td>
+        </tr>
+        <tr>
+          <td><strong>Toast 404 (non trovato)</strong><br><small style="color:var(--text-muted)">Pane tostato artigianale, prosciutto e formaggio fuso</small></td>
+          <td>€ 3,50</td>
+        </tr>
       </tbody>
     </table>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="index.html#prenota" class="btn btn-primary">Prenota un tavolo per gustarlo qui</a>
+    </div>
   </main>
 
   <footer class="footer">
-    <p>© 2026 Pixel Café</p>
+    <p>© 2026 Pixel Café • Il bar con commit garantito</p>
   </footer>
 </body>
 </html>

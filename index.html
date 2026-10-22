@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixel Café</title>
+  <title>Pixel Café - Il bar dei programmatori</title>
+  <meta name="description" content="Prenota il tuo tavolo al Pixel Café: il ritrovo perfetto per programmatori con ottimo caffè, prese elettriche e Wi-Fi veloce.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <img src="assets/logo.svg" alt="Logo Pixel Café" class="logo">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.svg" alt="Logo Pixel Café" class="logo">
+      <span>Pixel Café</span>
+    </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Menu</a>
+      <a href="#prenota" class="nav-cta">Prenota un tavolo</a>
     </nav>
   </header>
 
@@ -19,12 +27,111 @@
     <section class="hero">
       <h1>Pixel Café</h1>
       <p>Il bar dei programmatori: caffè, Wi-Fi veloce e prese di corrente a ogni tavolo.</p>
-      <button id="quote-btn">Dammi un consiglio</button>
+      <div class="hero-actions">
+        <a href="#prenota" class="btn btn-primary">Prenota un tavolo</a>
+        <button id="quote-btn" class="btn btn-secondary" type="button">Dammi un consiglio</button>
+      </div>
       <p id="quote" class="quote"></p>
     </section>
 
+    <section class="booking-section" id="prenota">
+      <div class="section-header">
+        <span class="badge">Prenotazioni Online</span>
+        <h2>Prenota un tavolo</h2>
+        <p>Riserva la tua postazione per programmare, studiare o gustare una pausa caffè in tranquillità.</p>
+      </div>
+
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nome">Nome e Cognome *</label>
+            <input type="text" id="nome" name="nome" placeholder="Es. Ada Lovelace" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="ada@esempio.it" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Telefono *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+39 340 1234567" required>
+          </div>
+
+          <div class="form-group">
+            <label for="ospiti">Numero di persone *</label>
+            <select id="ospiti" name="ospiti" required>
+              <option value="1">1 persona (Solo coding session)</option>
+              <option value="2" selected>2 persone (Pair programming)</option>
+              <option value="3">3 persone</option>
+              <option value="4">4 persone (Team sprint)</option>
+              <option value="5+">5 o più persone (Meetup / Riunione)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="data">Data *</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+
+          <div class="form-group">
+            <label for="ora">Orario *</label>
+            <select id="ora" name="ora" required>
+              <option value="" disabled selected>Seleziona un orario</option>
+              <option value="08:00">08:00 - Prima del deploy</option>
+              <option value="09:00">09:00 - Colazione & stand-up</option>
+              <option value="10:30">10:30 - Coffee break</option>
+              <option value="12:30">12:30 - Pausa pranzo</option>
+              <option value="14:00">14:00 - Pomeriggio deep work</option>
+              <option value="16:00">16:00 - Merenda e debug</option>
+              <option value="18:00">18:00 - Aperitivo post-merge</option>
+              <option value="19:00">19:00 - Ultimo giro di codice</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="postazione">Preferenza postazione</label>
+            <select id="postazione" name="postazione">
+              <option value="Presa elettrica ⚡">⚡ Dev Station (Vicino alla presa e Wi-Fi max)</option>
+              <option value="Focus Zone 🎧">🎧 Focus Zone (Area silenziosa per massima concentrazione)</option>
+              <option value="Finestra 🪟">🪟 Vicino alla finestra (Luce naturale)</option>
+              <option value="All'aperto ☀️">☀️ Terrazza all'aperto</option>
+              <option value="Nessuna preferenza ☕">☕ Nessuna preferenza (basta ci sia buon caffè)</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="note">Note speciali o richieste</label>
+            <textarea id="note" name="note" rows="3" placeholder="Es. latte vegetale d'avena, prolunga extra, tavolo per mancini..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary submit-btn" id="submit-booking">
+            <span>Conferma prenotazione</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-policy-note">Cancellazione gratuita e conferma immediata via email.</p>
+        </div>
+      </form>
+
+      <!-- Feedback di avvenuta prenotazione -->
+      <div id="booking-success" class="booking-success" style="display: none;" role="alert" aria-live="polite">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h3>Tavolo Prenotato con Successo!</h3>
+        <p class="success-sub">Non vediamo l'ora di accoglierti al Pixel Café.</p>
+
+        <div class="booking-summary" id="booking-summary">
+          <!-- Popolato dinamicamente via JavaScript -->
+        </div>
+
+        <p class="confirmation-note">Abbiamo inviato un'email di riepilogo con i dettagli della prenotazione.</p>
+        <button type="button" class="btn btn-secondary" id="reset-booking-btn">Effettua un'altra prenotazione</button>
+      </div>
+    </section>
+
     <section class="info">
-      <h2>Orari</h2>
+      <h2>Orari del locale</h2>
       <ul>
         <li>Lunedì - Venerdì: 7:30 - 20:00</li>
         <li>Sabato: 9:00 - 18:00</li>
@@ -34,7 +141,7 @@
   </main>
 
   <footer class="footer">
-    <p>© 2026 Pixel Café</p>
+    <p>© 2026 Pixel Café • Il bar con commit garantito</p>
   </footer>
 
   <script src="script.js"></script>
