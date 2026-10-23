@@ -6,7 +6,8 @@ Sito di esempio per l'esercizio **git-hello**.
 
 - `index.html` - home page
 - `menu.html` - pagina del menu
+- `prenotazioni.html` - pagina per la prenotazione di un tavolo
 - `style.css` - stili
-- `script.js` - bottone "Dammi un consiglio"
+- `script.js` - logica interattiva (consigli e prenotazione)
 - `assets/logo.svg` - logo
 - `docs/appunti.txt` - idee per le prossime modifiche
